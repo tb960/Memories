@@ -27,6 +27,7 @@ in server side of the application, we npm install the following package
 
 
 //how do we use the import statement instead of the usual const express = require('express')?
+-- How do we make connection to web application without using express?
 1) why do we want to use the import statement?
     - to use it we need to go to package.json and add one line after the "main" : "index.js",
     - add "type" : "module",
@@ -89,11 +90,56 @@ MongoDB connection
     - here, how do we make it a deployable database server like production environment database?
     - how are we going to make different database for scalability and reliability?
 
-2) MongoDb add user
+2) MongoDb add user && add network access
     - go to database access
     - we can set up like who can access our database here.
     - here Mongodb use scrum for authentication. What is scrum authentication btw?
     - what will happen if we never add any user in the database access control?
+
+    -set up the use access and network access
+
+3) -why do we use mongoose to connect to the database?
+   -how do we connect to database without using the mongoose?
+
+4) Establish connection for the backend
+    - below are the steps require to set up connection to backend server application
+    - first, import all the require frameworks and library such as express, mongoose, cors.., al this libraries is under node
+    - then create and app instance using express (look for how to set up and app instance without using express)
+    - then, we need to specify the middle we want to use, in our case, we use express.json which accept the req in json format
+    - we also use middleware such as urlencoded to turn the url format to string in req
+    - then we can also specify what middleware we want to use for our app instance by app.use().. app.use() will apply the middle ware to the whole backend
+    - then after that we configure and set up the database connections
+    - specify the url where the database are hosted, pass in the credentials and ports.
+    - then we use mongoose to create the connection to the database, here we need to handle the error by the try and catch statement
+    - after we connect to database we can finnaly run pur server.
+    - we can do it by putting a callback function after we connected to our database by using .then
+    - thn after that we can set all the deprecated configuration by using mongoose.set()....
+    - besides doing both the app.listen and also database connection in one file, we can also have another file specially for database connection, after that we can import the connected instance here and we make our app listen to the instance
+
+
+    *****************************************************************************************
+    Things that need to be clarify:
+
+    1) i need to go and study about some construct of javascript, like promises, callback functions, async and sync function. What is .then() . catch().
+    2) how the router.get('/, (req,res) => {}) works?
+
+    *****************************************************************************************
+
+    Part 3 Router
+    1) set up a folder call routes, where in here we specify all the routes available in our application
+    2) by using express.Router()
+    3) here we introduce a callback function mechanism, we need o have the knowledge of how javascript run, it is a interpret language where it runs line by line.
+    4) hence when we pass in the callback function in a function, it will run line by line
+    5) in our example we can say: 
+            router.get('/', (req, res) => {
+
+            });
+            meaning: when we trying to get the url '/', if it successful, we run the annonymous function which have two parameters req and res.
+            - the two paramaters will be returned by get '/' if we successfully get the data from the get.
+            - how do the second callback function get the req and res object?
+            - and let's say we have 4 parameters instead of just two req and res, how do callback function know eaxactly which one to pass to the function, does the order matter to the callback function?
+
+
 
 
        
