@@ -125,19 +125,42 @@ MongoDB connection
 
     *****************************************************************************************
 
-    Part 3 Router
-    1) set up a folder call routes, where in here we specify all the routes available in our application
-    2) by using express.Router()
-    3) here we introduce a callback function mechanism, we need o have the knowledge of how javascript run, it is a interpret language where it runs line by line.
-    4) hence when we pass in the callback function in a function, it will run line by line
-    5) in our example we can say: 
-            router.get('/', (req, res) => {
+Part 3 Router
+1) set up a folder call routes, where in here we specify all the routes available in our application
+2) by using express.Router()
+3) here we introduce a callback function mechanism, we need o have the knowledge of how javascript run, it is a interpret language where it runs line by line.
+4) hence when we pass in the callback function in a function, it will run line by line
+5) in our example we can say: 
+        router.get('/', (req, res) => {
 
-            });
-            meaning: when we trying to get the url '/', if it successful, we run the annonymous function which have two parameters req and res.
-            - the two paramaters will be returned by get '/' if we successfully get the data from the get.
-            - how do the second callback function get the req and res object?
-            - and let's say we have 4 parameters instead of just two req and res, how do callback function know eaxactly which one to pass to the function, does the order matter to the callback function?
+        });
+        meaning: when we trying to get the url '/', if it successful, we run the annonymous function which have two parameters req and res.
+        - the two paramaters will be returned by get '/' if we successfully get the data from the get.
+        - how do the second callback function get the req and res object?
+        - and let's say we have 4 parameters instead of just two req and res, how do callback function know eaxactly which one to pass to the function, does the order matter to the callback function?
+
+        - ps i tried to change the position of the req and res position, it does make a difference
+        - now my question is, how should we know like which argument should be in which position/
+
+    Answer: The order of the parameters is very important. First is request, second is respond, third is next(middleware)
+
+    If we want to specify the error handling function we cannot do it here! Very important
+
+    Callback function in router.get can only have three arguments
+
+Part4 Controller Folder
+1) Now we should move our application logic into the controller folder instead of cramping everything into the route folders
+2) Why do we even need a controller folder, why dont we just put everything inside of route?
+    - because we dont want to have logic under the route folder, just keep routing inside the route folder is enough and we move all the logic and function into the controller folder
+3) after we write the function in the controller, we need to export the function in the controller folder 
+    - how do we export more than one function at once in node?
+4) after that, we need to import the function that we want to use in route from controller folder.
+
+
+Part5 ModelFolder (This is for databse schema)
+1)
+
+
 
 
 

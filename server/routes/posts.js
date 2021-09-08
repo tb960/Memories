@@ -1,9 +1,9 @@
 import express from 'express';
 
+import { getPosts } from '../controllers/posts.js';
+
 const router = express.Router();
 
-router.get('/', (res, req) => {
-    res.setEncoding('This works!');
-});
+router.get('/', getPosts);
 
 export default router;
