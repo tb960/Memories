@@ -158,7 +158,17 @@ Part4 Controller Folder
 
 
 Part5 ModelFolder (This is for databse schema)
-1)
+1) model is a folder where we build our database schema
+2) we use mongoose here to build our database model. 
+
+**********************
+Questions: why mongoose is used here and how do we build a schema without using mongoose?
+***************************
+
+3) use mongoose.schema to build the schema and then we use mongoose.model to build the model, by passing in the name for the model and also the schema to constuct a model instance.
+
+4) How do we use the schema?
+
 
 
 
@@ -200,6 +210,11 @@ _ After the installation of the packages, we delete the src folder and create a 
 
 - How npm start know how to execute the command to start the front end application? what does react-script does?
 
-
-
-
+Setup of file:
+1) Index.js is the entry point for our front end application
+    - when you specifies index.js as your starting point, in your package.json file you should have set a npm start is equal to npm index.js
+    - we do not have to specified npm index.js because npm start which run reaact-script start already have the function running (what do react-script start do?)
+    - index.js file is the entry point file for us to connect our react application to the html file in the public folder
+    - see inside the react folder, you will notice that 
+    (learn how react-dom get the getElementById from the index.html file), what reactDOM.render do
+2) 

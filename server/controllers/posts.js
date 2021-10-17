@@ -13,6 +13,7 @@ export const getPosts = async (req, res) =>{
 
 export const createPosts =  async (req, res) => {
     const post = req.body;
+    console.log("The post title is" + post.title);
     const newPost = new PostMessage(post);
     try {
         await newPost.save();
