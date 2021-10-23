@@ -217,4 +217,13 @@ Setup of file:
     - index.js file is the entry point file for us to connect our react application to the html file in the public folder
     - see inside the react folder, you will notice that 
     (learn how react-dom get the getElementById from the index.html file), what reactDOM.render do
-2) 
+2) Then next is just setting up components, then add into the main App.js file
+3) Use material ui here, we should go and at least learn one front end library
+4) then after that we create style.css and the import it inside our react file
+5) we should go and learn what is useStyle() in react
+
+REDUX
+1) What is provider? Provider is going to keep track of the store which has a global state, this will allow us to access the state from any where not just in the parent components
+2) What is a middleware?
+3) Tutorial on redux and documentation
+4) Next study on React Hooks which can replace redux in 2021
